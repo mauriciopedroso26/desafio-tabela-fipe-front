@@ -1,0 +1,41 @@
+<script>
+  $(document).ready(function() {
+  $('.mdb-select').materialSelect();
+  });
+</script>
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+          <select (change)="onChangeBrand($event.target.value)" class="browser-default custom-select">
+            <option selected value="0">Selecione a Marca</option>
+            <option *ngFor="let brand of brands" [value]="brand?.id">{{brand?.name}}</option>
+          </select>
+      </div>
+      <div class="col-sm">
+          <select (change)="onChangeVehicle($event.target.value)" class="browser-default custom-select">
+            <option selected value="0">Selecione o Veículo</option>
+            <option *ngFor="let vehicle of vehicles" [value]="vehicle?.id">{{vehicle?.name}}</option>
+          </select>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Valor em</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Alteração de</th>
+      <th scope="col">Em Relação a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fipeVehicle of fipeVehicles">
+      <td>{{fipeVehicle?.valorEm}}</td>
+      <td>{{fipeVehicle?.valor}}</td>
+      <td>{{fipeVehicle?.alteracaoDe}}</td>
+      <td>{{fipeVehicle?.emRelacao}}</td>
+    </tr>
+  </tbody>
+</table>
